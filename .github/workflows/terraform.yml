@@ -4,7 +4,7 @@ on:
   pull_request: {}
 
 jobs:
-  tf_plan:
+  terraform:
     name: tf plan
     runs-on: ubuntu-latest
     steps:
