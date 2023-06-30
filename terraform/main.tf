@@ -10,7 +10,7 @@ terraform {
     organization = "mirror_kt"
 
     workspaces {
-      name = "mirror_kt"
+      name = "infra"
     }
   }
 }
