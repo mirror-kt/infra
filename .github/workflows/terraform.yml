@@ -40,5 +40,5 @@ jobs:
         if: github.event.pull_request.merged == true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: tfcmt apply -patch -- terraform apply -no-color -input=false
+        run: tfcmt apply -- terraform apply -no-color -input=false
         working-directory: terraform
