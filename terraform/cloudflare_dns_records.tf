@@ -1,12 +1,3 @@
-resource "cloudflare_record" "pleroma" {
-  name    = "pleroma"
-  proxied = false
-  ttl     = 1
-  type    = "A"
-  value   = "34.134.233.145"
-  zone_id = local.cloudflare_zone_id
-}
-
 resource "cloudflare_record" "root" {
   name    = "mirror-kt.dev"
   proxied = true
@@ -41,24 +32,6 @@ resource "cloudflare_record" "spf" {
   ttl     = 1
   type    = "TXT"
   value   = "v=spf1 include:www2800.sakura.ne.jp ~all"
-  zone_id = local.cloudflare_zone_id
-}
-
-resource "cloudflare_record" "mc_chun_1" {
-  name    = "mc.chun"
-  proxied = false
-  ttl     = 1
-  type    = "NS"
-  value   = "columbus.aternos.org"
-  zone_id = local.cloudflare_zone_id
-}
-
-resource "cloudflare_record" "mc_chun_2" {
-  name    = "mc.chun"
-  proxied = false
-  ttl     = 1
-  type    = "NS"
-  value   = "galileo.aternos.org"
   zone_id = local.cloudflare_zone_id
 }
 
