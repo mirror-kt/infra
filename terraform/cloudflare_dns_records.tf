@@ -61,3 +61,12 @@ resource "cloudflare_record" "keybase" {
   value   = "keybase-site-verification=BUwOwC7eaSNWlnpB9toKGrkWPbK8Mnx5C4p1_PxLENE"
   zone_id = local.cloudflare_zone_id
 }
+
+resource "cloudflare_record" "bsky_record" {
+  name    = "_atproto"
+  proxied = false
+  ttl     = 1
+  type    = "TXT"
+  value   = "did=did:plc:r74f3l5bzuodnjekrf364t2v"
+  zone_id = local.cloudflare_zone_id
+}
