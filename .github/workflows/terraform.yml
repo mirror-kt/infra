@@ -11,9 +11,9 @@ jobs:
       contents: read
       pull-requests: write
     env:
-      # renovate: datasource=github-releases depName=hashicorp/terraform versioning=semver
+      # renovate: datasource=github-releases depName=hashicorp/terraform
       TERRAFORM_VERSION: 1.2.1
-      # renovate: datasource=github-releases depName=suzuki-shunsuke/tfcmt versioning=semver
+      # renovate: datasource=github-releases depName=suzuki-shunsuke/tfcmt
       TFCMT_VERSION: 4.4.2
     steps:
       - uses: actions/checkout@v4
