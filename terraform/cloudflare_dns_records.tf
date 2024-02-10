@@ -31,7 +31,7 @@ resource "cloudflare_record" "spf" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  value   = "v=spf1 include:www2800.sakura.ne.jp ~all"
+  value   = "v=spf1 a:www2800.sakura.ne.jp mx ~all"
   zone_id = local.cloudflare_zone_id
 }
 
@@ -40,7 +40,7 @@ resource "cloudflare_record" "dmarc" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  value   = "v=DMARC1; p=quarantine; rua=mailto:dmarc@mirror-kt.dev"
+  value   = "v=DMARC1; p=quarantine; rua=mailto:me@mirror-kt.dev; ruf=mailto:me@mirror-kt.dev"
   zone_id = local.cloudflare_zone_id
 }
 
