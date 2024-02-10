@@ -10,17 +10,22 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+    env:
+      # renovate: datasource=github-releases depName=hashicorp/terraform versioning=semver
+      TERRAFORM_VERSION: 1.2.1
+      # renovate: datasource=github-releases depName=suzuki-shunsuke/tfcmt versioning=semver
+      TFCMT_VERSION: 4.4.2
     steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          terraform_version: 1.2.1
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
       - name: setup tfcmt
         env:
-          TFCMT_VERSION: v4.4.2
+          TFCMT_VERSION: ${{ env.TFCMT_VERSION }}
         run: |
-          wget "https://github.com/suzuki-shunsuke/tfcmt/releases/download/${TFCMT_VERSION}/tfcmt_linux_amd64.tar.gz" -O /tmp/tfcmt.tar.gz
+          wget "https://github.com/suzuki-shunsuke/tfcmt/releases/download/v${TFCMT_VERSION}/tfcmt_linux_amd64.tar.gz" -O /tmp/tfcmt.tar.gz
           tar xzf /tmp/tfcmt.tar.gz -C /tmp
           mv /tmp/tfcmt /usr/local/bin
           tfcmt --version
