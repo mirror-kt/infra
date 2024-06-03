@@ -22,7 +22,7 @@ resource "cloudflare_record" "mail" {
   proxied  = false
   ttl      = 1
   type     = "MX"
-  value    = "www2800.sakura.ne.jp"
+  value    = "smtp.google.com"
   zone_id  = local.cloudflare_zone_id
 }
 
@@ -31,7 +31,7 @@ resource "cloudflare_record" "spf" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  value   = "v=spf1 a:www2800.sakura.ne.jp mx ~all"
+  value   = "v=spf1 include:_spf.google.com ~all"
   zone_id = local.cloudflare_zone_id
 }
 
