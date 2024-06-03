@@ -18,7 +18,7 @@ resource "cloudflare_record" "dub_sh" {
 
 resource "cloudflare_record" "mail" {
   name     = "mirror-kt.dev"
-  priority = 0
+  priority = 1
   proxied  = false
   ttl      = 1
   type     = "MX"
