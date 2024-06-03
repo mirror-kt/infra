@@ -70,3 +70,10 @@ resource "cloudflare_record" "bsky_record" {
   value   = "did=did:plc:r74f3l5bzuodnjekrf364t2v"
   zone_id = local.cloudflare_zone_id
 }
+
+resource "cloudflare_record" "google_workspace" {
+  name    = "mirror-kt.dev"
+  type    = "TXT"
+  value   = "google-site-verification=HOfSNNDUwvlVJsp2TP7dwJCBub6fX7-Kpw1VGXZ2Ogg"
+  zone_id = local.cloudflare_zone_id
+}
