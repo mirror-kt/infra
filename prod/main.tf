@@ -5,14 +5,6 @@ terraform {
       version = "~> 4.0"
     }
   }
-
-  cloud {
-    organization = "mirror_kt"
-
-    workspaces {
-      name = "infra"
-    }
-  }
 }
 
 locals {
