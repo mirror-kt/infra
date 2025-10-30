@@ -22,10 +22,10 @@ jobs:
       statuses: write      # required to validate combined PR status
 
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: ${{ fromJSON(github.event.inputs.spec).job_id }}
         run: echo "job id ${{ fromJSON(github.event.inputs.spec).job_id }}"
-      - uses: diggerhq/digger@vLatest
+      - uses: diggerhq/digger@e271ff07c354d40a3405c008883f7313e44c3bee # v0.6.131
         with:
           digger-spec: ${{ inputs.spec }}
           setup-opentofu: true
