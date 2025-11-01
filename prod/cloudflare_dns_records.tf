@@ -78,3 +78,11 @@ resource "cloudflare_dns_record" "google_workspace" {
   content = "google-site-verification=HOfSNNDUwvlVJsp2TP7dwJCBub6fX7-Kpw1VGXZ2Ogg"
   zone_id = local.cloudflare_zone_id
 }
+
+resource "cloudflare_dns_record" "maven_central" {
+  name    = "mirror-kt.dev"
+  ttl     = 1
+  type    = "TXT"
+  content = "kpzuvwto4j"
+  zone_id = local.cloudflare_zone_id
+}
