@@ -40,7 +40,7 @@ resource "cloudflare_dns_record" "spf" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  content = "v=spf1 include:_spf.google.com ~all"
+  content = "\"v=spf1 include:_spf.google.com ~all\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -49,7 +49,7 @@ resource "cloudflare_dns_record" "dmarc" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  content = "v=DMARC1; p=quarantine; rua=mailto:me@mirror-kt.dev; ruf=mailto:me@mirror-kt.dev"
+  content = "\"v=DMARC1; p=quarantine; rua=mailto:8870c30114534a65bc469def4c018056@dmarc-reports.cloudflare.net,mailto:me@mirror-kt.dev; ruf=mailto:me@mirror-kt.dev\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -58,7 +58,7 @@ resource "cloudflare_dns_record" "github_pages_challenge" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  content = "5ccd0ccb2e561700cb4bc02bfb98f1"
+  content = "\"5ccd0ccb2e561700cb4bc02bfb98f1\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -67,7 +67,7 @@ resource "cloudflare_dns_record" "keybase" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  content = "keybase-site-verification=BUwOwC7eaSNWlnpB9toKGrkWPbK8Mnx5C4p1_PxLENE"
+  content = "\"keybase-site-verification=BUwOwC7eaSNWlnpB9toKGrkWPbK8Mnx5C4p1_PxLENE\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -76,7 +76,7 @@ resource "cloudflare_dns_record" "bsky_record" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  content = "did=did:plc:r74f3l5bzuodnjekrf364t2v"
+  content = "\"did=did:plc:r74f3l5bzuodnjekrf364t2v\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -84,7 +84,7 @@ resource "cloudflare_dns_record" "google_workspace" {
   name    = "mirror-kt.dev"
   ttl     = 1
   type    = "TXT"
-  content = "google-site-verification=HOfSNNDUwvlVJsp2TP7dwJCBub6fX7-Kpw1VGXZ2Ogg"
+  content = "\"google-site-verification=HOfSNNDUwvlVJsp2TP7dwJCBub6fX7-Kpw1VGXZ2Ogg\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -92,6 +92,6 @@ resource "cloudflare_dns_record" "maven_central" {
   name    = "mirror-kt.dev"
   ttl     = 1
   type    = "TXT"
-  content = "kpzuvwto4j"
+  content = "\"kpzuvwto4j\""
   zone_id = local.cloudflare_zone_id
 }
