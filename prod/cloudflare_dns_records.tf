@@ -16,15 +16,6 @@ resource "cloudflare_dns_record" "dub_sh" {
   zone_id = local.cloudflare_zone_id
 }
 
-resource "cloudflare_dns_record" "proofdict" {
-  name    = "proofdict"
-  proxied = false
-  ttl     = 1
-  type    = "CNAME"
-  content = "mirror-kt.github.io"
-  zone_id = local.cloudflare_zone_id
-}
-
 resource "cloudflare_dns_record" "mail" {
   name     = "mirror-kt.dev"
   priority = 1
