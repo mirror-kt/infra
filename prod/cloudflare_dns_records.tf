@@ -94,3 +94,11 @@ resource "cloudflare_dns_record" "google_search_console" {
   content = "google-site-verification=yoin4lq6rRfEHOT-di-qycnun6jMOQ8L353DGyRvs8s"
   zone_id = local.cloudflare_zone_id
 }
+
+resource "cloudflare_dns_record" "vaultwarden" {
+  name    = "vault"
+  ttl     = 1
+  type    = "CNAME"
+  content = "ghs.googlehosted.com."
+  zone_id = local.cloudflare_zone_id
+}
