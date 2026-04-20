@@ -40,7 +40,7 @@ resource "cloudflare_dns_record" "dmarc" {
   proxied = false
   ttl     = 1
   type    = "TXT"
-  content = "\"v=DMARC1; p=quarantine; rua=mailto:8870c30114534a65bc469def4c018056@dmarc-reports.cloudflare.net,mailto:me@mirror-kt.dev; ruf=mailto:me@mirror-kt.dev\""
+  content = "\"v=DMARC1; p=quarantine; rua=mailto:8870c30114534a65bc469def4c018056@dmarc-reports.cloudflare.net; ruf=mailto:me@mirror-kt.dev\""
   zone_id = local.cloudflare_zone_id
 }
 
@@ -84,5 +84,13 @@ resource "cloudflare_dns_record" "maven_central" {
   ttl     = 1
   type    = "TXT"
   content = "\"kpzuvwto4j\""
+  zone_id = local.cloudflare_zone_id
+}
+
+resource "cloudflare_dns_record" "google_search_console" {
+  name    = "mirror-kt.dev"
+  ttl     = 1
+  type    = "TXT"
+  content = "google-site-verification=yoin4lq6rRfEHOT-di-qycnun6jMOQ8L353DGyRvs8s"
   zone_id = local.cloudflare_zone_id
 }
